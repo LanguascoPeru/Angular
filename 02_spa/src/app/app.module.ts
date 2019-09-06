@@ -6,6 +6,7 @@ import { APP_ROUTING } from './app.routes';
 
 //--- SERVICIOS
 
+import { HeroesServices } from './services/heroes.service';
 
 ///--COMPONENTES----
 import { AppComponent } from './app.component';
@@ -26,7 +27,9 @@ import { HeroesComponent } from './components/heroes/heroes.component';
     BrowserModule,
     APP_ROUTING
   ],
-  providers: [],
+  providers: [
+    HeroesServices
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
