@@ -65,6 +65,25 @@ export class HeroesServices{
     getHeroe(index:number){
       return this.heroes[index];
     }
+
+    buscarHeroes(filtro:string):Heroe [] {
+      let heroesArr:Heroe [] = [];
+
+      filtro =filtro.toLowerCase();
+      
+      for (let obj of this.heroes){
+        let nombre=obj.nombre.toLowerCase();
+        if (nombre.indexOf(filtro) >=0 ){
+          heroesArr.push(obj);
+        }
+        // if(filtro == obj.nombre.toLowerCase()){
+        //   heroesArr.push(obj);
+        //   break;
+        // }
+      }      
+      return heroesArr;
+    }
+
 }
 
 export interface Heroe {

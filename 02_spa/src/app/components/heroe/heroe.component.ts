@@ -14,8 +14,8 @@ export class HeroeComponent {
   constructor(private _activarteRoute:ActivatedRoute,private _heroesService:HeroesServices) { 
     //--- propiedad que se obtiene por el url debe de ser igual al que se definio en el app.routes.
     this._activarteRoute.params.subscribe( param =>{
-      this.heroe= this._heroesService.getHeroe(param['id'])
-      console.log(this.heroe);
+      this.heroe=this._heroesService.getHeroe(param['id']);
+      console.log( this.heroe);
     })
   } 
 }
