@@ -11,4 +11,13 @@ export class AppComponent {
   PI:number=3.1415926535;
   ax:number= 0.234;
   salario:number =12345;
+  heroe:{} = {
+    nombre: 'logan',
+    clave:'Wolwerine',
+    edad:500,
+    direccion:{
+      calle:'Primera',
+      casa:'19'
+    }
+  }
 }
