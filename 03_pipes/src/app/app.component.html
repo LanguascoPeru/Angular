@@ -85,11 +85,42 @@
                 <td> {{salario| currency:'EUR':true: '4.0-0'}}</td>
             </tr>
 
-
             <tr>
                 <td> {{salario}} </td>
                 <td> number</td>
                 <td> {{salario| number :'.2-2'}}</td>
+            </tr>
+
+            <tr>
+                <td> {{valorPromesa}} </td>
+                <td> async Promesa</td>
+                <td> {{valorPromesa | async }} </td>
+            </tr>
+
+            <tr>
+                <td> {{fecha}} </td>
+                <td> Fecha</td>
+                <td> {{fecha | date}} </td>
+            </tr>
+
+            <tr>
+                <td> {{fecha}} </td>
+                <td> Fecha: 'medium' </td>
+                <td> {{fecha | date:'medium'}} </td>
+            </tr>
+
+
+            <tr>
+                <td> {{fecha}} </td>
+                <td> Fecha: 'personalizado' </td>
+                <td> {{fecha | date:'dd/MM/yyyy'}} </td>
+            </tr>
+
+
+            <tr>
+                <td> {{nombre2}} </td>
+                <td> capitalizado </td>
+                <td> {{nombre2 | capitalizado}}</td>
             </tr>
 
 
@@ -104,6 +135,13 @@
 
     <h4>Json</h4>
     {{heroe | json}}
+    <br>
+    <br>
+
+    <pre>
+        {{heroe | json}}
+    </pre>
+
     <br>
     <br>
     <br>
