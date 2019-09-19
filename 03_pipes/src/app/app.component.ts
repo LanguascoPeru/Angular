@@ -33,4 +33,9 @@ export class AppComponent {
 
   fecha = new Date();
 
+  video = "UCalSQSsV0o";
+
+  palabra:string="juan";
+  activar:boolean=true;
+
 }
