@@ -1,0 +1,154 @@
+<div class="container">
+    <br>
+    <h1>Pipes</h1>
+    <hr>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>Variable</th>
+                <th>Pipe</th>
+                <th>Producto</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td> {{nombre}} </td>
+                <td> Upper Case </td>
+                <td> {{nombre | uppercase}}</td>
+            </tr>
+            <tr>
+                <td> {{nombre}} </td>
+                <td> Lower Case </td>
+                <td> {{nombre | lowercase}}</td>
+            </tr>
+            <tr>
+                <td> {{nombre}} </td>
+                <td> slice:6 </td>
+                <td> {{nombre | slice:6}}</td>
+            </tr>
+            <tr>
+                <td> {{nombre}} </td>
+                <td> slice:0:3 </td>
+                <td> {{nombre | slice:2:5}}</td>
+            </tr>
+            <tr>
+                <td> {{arreglo}} </td>
+                <td> slice:0:3 </td>
+                <td> {{arreglo | slice:0:5}}</td>
+            </tr>
+
+            <tr>
+                <td> {{PI}} </td>
+                <td> formateando decimales</td>
+                <td> {{PI|number:'3.0-0'}}</td>
+            </tr>
+
+            <tr>
+                <td> {{PI}} </td>
+                <td> formateando decimales </td>
+                <td> {{PI|number:'1.0-2'}}</td>
+            </tr>
+
+            <tr>
+                <td> {{ax}} </td>
+                <td> percent </td>
+                <td> {{ax|percent}}</td>
+            </tr>
+
+            <tr>
+                <td> {{ax}} </td>
+                <td> percent:'2.2-2' </td>
+                <td> {{ax|percent:'2.2-2'}}</td>
+            </tr>
+
+            <tr>
+                <td> {{salario}} </td>
+                <td> salario </td>
+                <td> {{salario| currency }}</td>
+            </tr>
+
+            <tr>
+                <td> {{salario}} </td>
+                <td> salario:PEN </td>
+                <td> {{salario| currency:'PEN' }}</td>
+            </tr>
+
+            <tr>
+                <td> {{salario}} </td>
+                <td> salario:PEN:TRUE </td>
+                <td> {{salario| currency:'EUR': true }}</td>
+            </tr>
+
+            <tr>
+                <td> {{salario}} </td>
+                <td> salario:PEN:TRUE :4.0-0 </td>
+                <td> {{salario| currency:'EUR':true: '4.0-0'}}</td>
+            </tr>
+
+            <tr>
+                <td> {{salario}} </td>
+                <td> number</td>
+                <td> {{salario| number :'.2-2'}}</td>
+            </tr>
+
+            <tr>
+                <td> {{valorPromesa}} </td>
+                <td> async Promesa</td>
+                <td> {{valorPromesa | async }} </td>
+            </tr>
+
+            <tr>
+                <td> {{fecha}} </td>
+                <td> Fecha</td>
+                <td> {{fecha | date}} </td>
+            </tr>
+
+            <tr>
+                <td> {{fecha}} </td>
+                <td> Fecha: 'medium' </td>
+                <td> {{fecha | date:'medium'}} </td>
+            </tr>
+
+
+            <tr>
+                <td> {{fecha}} </td>
+                <td> Fecha: 'personalizado' </td>
+                <td> {{fecha | date:'dd/MM/yyyy'}} </td>
+            </tr>
+
+
+            <tr>
+                <td> {{nombre2}} </td>
+                <td> capitalizado </td>
+                <td> {{nombre2 | capitalizado}}</td>
+            </tr>
+
+
+        </tbody>
+    </table>
+    <h4>Slice</h4>
+    <ul>
+        <li *ngFor="let item of arreglo | slice:4:10"> {{item}}
+
+        </li>
+    </ul>
+
+    <h4>Json</h4>
+    {{heroe | json}}
+    <br>
+    <br>
+
+    <pre>
+        {{heroe | json}}
+    </pre>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+</div>
