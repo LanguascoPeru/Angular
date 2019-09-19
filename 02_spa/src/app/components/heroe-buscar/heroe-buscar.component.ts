@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HeroeBuscarComponent implements OnInit {
 
-  heroe:any={};
+  heroe:any []=[];
   constructor( private _activarteRoute : ActivatedRoute, private heroesServices: HeroesServices) { 
 
         //--- propiedad que se obtiene por el url debe de ser igual al que se definio en el app.routes.

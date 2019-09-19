@@ -1,20 +1,27 @@
-<h1 class="animated fadeIn" *ngFor="let item of heroe"> {{item.nombre | uppercase}} <small> {{item.aparicion | date:'y'}}</small> </h1>
-<hr>
-<div class="row animated fadeIn fast" *ngFor="let item of heroe">
-    <div class="col-md-4">
-        <img [src]="item.img" class="img-fluid" alt="imagen de personajes">
-        <br><br>
-        <a [routerLink]="['/heroes']" class="btn btn-outline-danger btn-block"> Regresar</a>
-    </div>
-    <div class="col-md-8">
-        <h3>{{item.nombre}} </h3>
-        <hr>
-        <p>
-            {{item.bio}}
-        </p>
-        <div>
-            <img *ngIf="item.casa === 'Marvel'" src="../assets/img/avengers.png">
-            <img *ngIf="item.casa === 'DC'" src="../assets/img/dc.png">
+<!-- <div *ngFor="let item of heroe">
+    <h1 class="animated fadeIn"> {{item.nombre | uppercase}} <small> {{item.aparicion | date:'y'}}</small> </h1>
+    <hr>
+    <div class="row animated fadeIn fast">
+        <div class="col-md-4">
+            <img [src]="item.img" class="img-fluid" alt="imagen de personajes">
+            <br><br>
+            <a [routerLink]="['/heroes']" class="btn btn-outline-danger btn-block"> Regresar</a>
+        </div>
+        <div class="col-md-8">
+            <h3>{{item.nombre}} </h3>
+            <hr>
+            <p>
+                {{item.bio}}
+            </p>
+            <div>
+                <img *ngIf="item.casa === 'Marvel'" src="../assets/img/avengers.png">
+                <img *ngIf="item.casa === 'DC'" src="../assets/img/dc.png">
+            </div>
         </div>
     </div>
+    <br>
+</div> -->
+
+<div class="card-columns">
+    <app-heroe-tarjeta [heroe]="item" [index]="0" *ngFor="let item of heroe"> </app-heroe-tarjeta>
 </div>

@@ -1,13 +1,5 @@
 <h1>Heroes <small> Marvel DC </small> </h1>
 <div class="card-columns">
-    <div class="card animated fadeIn fast" *ngFor="let item of heroes; let i = index">
-        <img [src]="item.img" class=" card-img-top " [alt]="item.nombre">
-        <div class="card-body ">
-            <h5 class="card-title ">{{item.nombre}}</h5>
-            <p class="card-text ">{{item.bio}}</p>
-            <p class="card-text "><small class="text-muted ">{{item.aparicion}}</small></p>
-            <button type="button " (click)="verHeroe(i)" class="btn btn-outline-primary btn-block "> ver mas</button>
-            <!-- <a [routerLink]="['/heroe',i]" class="btn btn-outline-primary btn-block "> ver mas</a> -->
-        </div>
-    </div>
+    <!--  [heroe]="item" [index]="i"   son variable Input que se envian como parametro a otro componente (hija) -->
+    <app-heroe-tarjeta [heroe]="item" [index]="i" *ngFor="let item of heroes; let i = index"></app-heroe-tarjeta>
 </div>

@@ -76,10 +76,6 @@ export class HeroesServices{
         if (nombre.indexOf(filtro) >=0 ){
           heroesArr.push(obj);
         }
-        // if(filtro == obj.nombre.toLowerCase()){
-        //   heroesArr.push(obj);
-        //   break;
-        // }
       }      
       return heroesArr;
     }
