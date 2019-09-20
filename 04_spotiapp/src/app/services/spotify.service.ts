@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { map } from 'rxjs/operators'; 
+import { pipe } from 'rxjs';
 
 // @Injectable( {
 //   providedIn : 'root'  ---- forma automatica de inyectar servicios para no declararlo en el app.modulo.ts
@@ -7,29 +9,54 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 @Injectable()
-export class SpotifyService {
-  
+export class SpotifyService {  
 
   constructor(private http:HttpClient ) {
     console.log('spotify services ready')
   }
 
+  getQuery(query: string){
+    const URL= "https://api.spotify.com/v1/" + query;
 
-  getNewReleases(){
-    //---definiendo parametros en la peticion
     const headers = new HttpHeaders({
-        'Authorization' : 'Bearer BQAJnpp_TixWZJakmdGnWYv4u-1rfsXksFRZV_tVGlweXJkZq72ZYWxcruAlNilOfCiaqYlwW1BrmES-6Zs'
+      'Authorization' : 'Bearer BQCmOQ7By4FoWVSr0da6RfQ8xfqylsIgCLcCmOHd3VgzHPz3vPDg8uqljv3bB-ZV_vEspH1rApAmUIG2Dak'
     });
-
-    return this.http.get('https://api.spotify.com/v1/browse/new-releases', {headers});
+  
+    return this.http.get(URL, {headers});  
   }
 
-  getArtista(termino:string){
-      const headers = new HttpHeaders({
-        'Authorization' : 'Bearer BQAJnpp_TixWZJakmdGnWYv4u-1rfsXksFRZV_tVGlweXJkZq72ZYWxcruAlNilOfCiaqYlwW1BrmES-6Zs'
-     });
+  ////---anterior forma
+  // getNewReleases(){
+  //   //---definiendo parametros en la peticion
+  //   const headers = new HttpHeaders({
+  //       'Authorization' : 'Bearer BQCmOQ7By4FoWVSr0da6RfQ8xfqylsIgCLcCmOHd3VgzHPz3vPDg8uqljv3bB-ZV_vEspH1rApAmUIG2Dak'
+  //   });
 
-    return this.http.get('https://api.spotify.com/v1/search?q='+ termino +'&type=artist&limit=15', {headers});
+  // filtrar la informacion
+  //  .pipe(map((data:any)=>{
+  //   return data.artists.items;
+  //  }));  
+
+  //   return this.http.get('https://api.spotify.com/v1/browse/new-releases', {headers}) 
+  //                   .pipe( map((data:any)=>{
+  //                      return data.albums.items;
+  //                   }))
+     
+  // }
+  
+    // nueva forma
+  getNewReleases(){
+    return this.getQuery("browse/new-releases")
+          .pipe( map((data:any)=>{
+              return data.albums.items;
+          }))     
+  }  
+
+  getArtista(termino:string){
+   return this.getQuery( `search?q=${termino}$&type=artist&limit=15`)
+              .pipe(map((data:any)=>{
+                return data.artists.items;
+              }))
   }
 
 }
