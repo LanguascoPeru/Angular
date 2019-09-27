@@ -1,7 +1,5 @@
-<!-- manera normal -->
-
-<!-- <div class="card-columns">
-    <div class="card" *ngFor="let cancion of nuevasCanciones">
+<div class="card-columns">
+    <div class="card puntero" (click)="verArtista(cancion)" *ngFor="let cancion of listCanciones">
         <img [src]="cancion.images  | noimage" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">
@@ -14,10 +12,4 @@
             </p>
         </div>
     </div>
-</div> -->
-
-<!-- manera optimizada -->
-
-<app-loading [hidden]="!load"></app-loading>
-<app-alert-error [valorError]="mensajeError" [flagError]="error"></app-alert-error>
-<app-tarjetas [listCanciones]="nuevasCanciones"></app-tarjetas>
+</div>
