@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
        Etiqueta con stylo dinamico
     </p>
     <p [ngStyle]="{'font-size': tamanio + 'px'}">
-      Etiqueta con stylo dinamico
+      Etiqueta con estilo dinamico
    </p>
    <p [style.fontSize.px]="tamanio">
       Etiqueta con stylo dinamico
@@ -27,7 +27,6 @@ import { Component, OnInit } from '@angular/core';
 export class NgStyleComponent implements OnInit {
 
   tamanio:number= 20;
-  tamanioPx:string= "'{font-size':40px}'";
   constructor() { }
 
   ngOnInit() {
