@@ -10,6 +10,7 @@ import { PreciosComponent } from './components/precios/precios.component';
 // importar rutas
 ///---- RUTAS
 import { APP_ROUTING } from './app.routes';
+import { CallbackComponent } from './components/callback/callback.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { APP_ROUTING } from './app.routes';
     HomeComponent,
     NavbarComponent,
     ProtegidaComponent,
-    PreciosComponent
+    PreciosComponent,
+    CallbackComponent
   ],
   imports: [
     BrowserModule,
