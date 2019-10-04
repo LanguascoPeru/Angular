@@ -1,18 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
+
 import { UsuarioModel } from '../../models/usuario.model';
 // Para poder manipular informacion del formulario
-import { NgForm } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-registro',
-  templateUrl: './registro.component.html',
-  styleUrls: ['./registro.component.css']
+  templateUrl: './registro.component.html'
 })
 export class RegistroComponent implements OnInit {
 
   usuario:UsuarioModel ;
-
-  constructor() { }
+  recordarme:boolean=false;
+  constructor(private auth:AuthService, private router:Router) { }
 
   ngOnInit() { 
     this.usuario = new UsuarioModel();
@@ -24,13 +27,35 @@ export class RegistroComponent implements OnInit {
   // NgForm importarlo la referencia
   onSubmit(form:NgForm){
 
-    if (form.invalid) {
-      return;
-    }
+    if (form.invalid) {return }    
+    Swal.fire({
+      allowOutsideClick:false,
+      type: 'info',
+      text: 'Espere por favor'
+    })
+    Swal.showLoading();
 
-    console.log('formulario enviado');
-    console.log(this.usuario);
-    console.log(form);
+    this.auth.nuevoUsuario(this.usuario)
+    .subscribe((data)=>{
+      console.log(data);
+      Swal.close();
+      if (this.recordarme) {
+          // crear una variable en el local storage
+           localStorage.setItem('email', this.usuario.email);
+      }     
+
+      // redireccionar a otra pagina con codigo 
+      this.router.navigateByUrl('/home');
+    }, (err)=>{
+
+      Swal.fire({
+        type: 'error',
+        title: 'Error al registrar',
+        text: err.error.error.message
+      })
+      
+    })
+
   }
 
 

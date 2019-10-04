@@ -4,6 +4,9 @@ import { NgModule } from '@angular/core';
 // para poder utilizar en ng-model
 import { FormsModule } from '@angular/forms';
 
+////------ peticiones http
+import { HttpClientModule } from '@angular/common/http' ;
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -21,7 +24,8 @@ import { LoginComponent } from './pages/login/login.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
