@@ -1,0 +1,158 @@
+<h4>Formularios <small>template</small></h4>
+<hr>
+<form [formGroup]="form" (ngSubmit)="guardar();" novalidate="novalidate">
+
+    <div>
+
+        <div class="form-group row" [ngClass]="{'has-danger': !form.get('nombre').valid }">
+            <label class="col-2 col-form-label">Nombre</label>
+            <div class="col-8">
+                <!-- formControlName="nombre" =  variable igual que el nombre que se le dio en el componente-->
+                <input class="form-control" type="text" placeholder="Nombre" formControlName="nombre">
+
+                <div *ngIf="form.controls['nombre'].errors?.required" class="form-control-feedback">
+                    El nombre es necesario
+                </div>
+                <div *ngIf="form.controls['nombre'].errors?.minlength" class="form-control-feedback">
+                    Por lo menos 3 caracteres
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Apellido</label>
+            <div class="col-8">
+
+                <input class="form-control" type="text" placeholder="Apellido" formControlName="apellido">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Correo</label>
+        <div class="col-md-8">
+
+            <input class="form-control" type="email" placeholder="Correo electrónico" formControlName="email">
+        </div>
+    </div>
+
+
+
+    <div class="form-group row">
+        <label class="col-2 col-form-label">&nbsp;</label>
+        <div class="input-group col-md-8">
+            <button [disabled]="!form.valid" type="submit" class="btn btn-outline-primary">
+                Guardar
+            </button>
+        </div>
+    </div>
+
+    {{form.valid}}
+
+
+</form>
+
+
+
+
+
+<h4>Formularios 2 <small>template 2 </small></h4>
+<hr>
+<form [formGroup]="form2" (ngSubmit)="guardar();" novalidate="novalidate">
+
+    <div formGroupName="nombreCompleto">
+
+        <div class="form-group row" [ngClass]="{'has-danger': !form2.controls['nombreCompleto'].controls['nombre'].valid }">
+            <label class="col-2 col-form-label">Nombre</label>
+            <div class="col-8">
+                <!-- formControlName="nombre" =  variable igual que el nombre que se le dio en el componente-->
+                <input class="form-control" type="text" placeholder="Nombre" formControlName="nombre">
+
+                <div *ngIf="form2.get('nombreCompleto.nombre').errors?.required" class="form-control-feedback">
+                    El nombre es necesario
+                </div>
+                <div *ngIf="form2.get('nombreCompleto.nombre').errors?.minlength" class="form-control-feedback">
+                    Por lo menos 3 caracteres
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Apellido</label>
+            <div class="col-8">
+
+                <input class="form-control" type="text" placeholder="Apellido" formControlName="apellido">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Correo</label>
+        <div class="col-md-8">
+
+            <input class="form-control" type="email" placeholder="Correo electrónico" formControlName="email">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Usuario Sesion</label>
+        <div class="col-md-8">
+
+            <input class="form-control" type="text" placeholder="usuario" formControlName="username">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Password</label>
+        <div class="col-md-8">
+
+            <input class="form-control" type="password" placeholder="password" formControlName="password">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Repetir Password</label>
+        <div class="col-md-8">
+
+            <input class="form-control" type="password" placeholder="repetir constraseña" formControlName="password2">
+        </div>
+    </div>
+
+
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Pasatiempo</label>
+        <div class="col-md-8" formArrayName="pasatiempo">
+            <input *ngFor="let pasatiempo of form2.controls['pasatiempo'].controls;  let i = index" [formControlName]="i" type="text" class="form-control">
+        </div>
+        <div>
+            <button type="button" class="btn btn-outline-primary" (click)="agregarPasatiempo();">
+                Nuevo
+            </button>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-2 col-form-label">&nbsp;</label>
+        <div class="input-group col-md-8">
+            <button [disabled]="!form2.valid" type="submit" class="btn btn-outline-primary">
+                    Guardar 
+                </button>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-2 col-form-label">&nbsp;</label>
+        <div class="input-group col-md-8">
+            <button type="submit" class="btn btn-outline-primary">
+                Guardar 2
+            </button>
+        </div>
+    </div>
+
+    {{form2.valid}}
+    <br> {{form2.status}}
+
+
+</form>

@@ -17,8 +17,9 @@ export class LoginComponent implements OnInit {
   recordarme:boolean = false;
 
 
-  constructor(private auth:AuthService,
-              private router:Router) { }
+  constructor(private auth:AuthService,  private router:Router) { 
+
+              }
   ngOnInit() {
     this.usuario = new UsuarioModel();
 
