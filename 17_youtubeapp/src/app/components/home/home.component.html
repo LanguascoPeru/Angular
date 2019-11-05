@@ -2,4 +2,36 @@
     <h1>Canal de YouTube</h1>
     <hr>
 
+    <div class="card-columns" *ngIf="videos.length>0">
+
+        <div class="card" *ngFor="let video of videos">
+            <img [src]="video.thumbnails.high.url" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{video.title}}</h5>
+                <button class="btn btn-outline-primary btn-block" (click)="verVideo(video)"> Ver video</button>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" *ngIf="movieSelect">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{{movieSelect.title}}</h5>
+                </div>
+                <div class="modal-body">
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/wHeQQF0SV04" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
 </div>
