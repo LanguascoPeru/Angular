@@ -16,6 +16,10 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NavbarComponent } from './pages/shared/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
+
+/// ng-bootstrap datepicker
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+ 
  
 
 @NgModule({
@@ -30,7 +34,8 @@ import { HomeComponent } from './pages/home/home.component';
     APP_ROUTING,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
