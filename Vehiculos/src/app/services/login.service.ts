@@ -34,7 +34,7 @@ export class LoginService {
     parametros = parametros.append('option', '1');
     parametros = parametros.append('filters', usuario.usuario_login + '|' + usuario.password);
 
-    return this.http.get('http://192.168.10.25:8086/api/UsuarioAccesos',{params: parametros})
+    return this.http.get('http://192.168.10.25:8085/api/UsuarioAccesos',{params: parametros})
             .pipe(map((res)=>{
                   if(!res){
                     return {
@@ -63,7 +63,19 @@ export class LoginService {
     // si es que existe una  variable creada en el local storage, leemos su valor
     if (localStorage.getItem('data_usuario')) { 
       this.usuarioLogeado =true;
-      this.dataLogeado =  JSON.parse(localStorage.getItem("data_usuario")).listPermisos;
+      // this.dataLogeado =  JSON.parse(localStorage.getItem("data_usuario")).listPermisos; 
+      var PermisosUsuario_GestionVehiculos = JSON.parse(localStorage.getItem("data_usuario")).listPermisos;
+      var resultPermission = [];
+      
+      PermisosUsuario_GestionVehiculos.forEach(function (item, index) {
+          if (item.parent_id == 2) {
+              resultPermission.push(item);
+          };
+      })
+
+      console.log(resultPermission)
+      this.dataLogeado = resultPermission;
+      
     }else{  
       this.usuarioLogeado =false;
       this.dataLogeado = [];

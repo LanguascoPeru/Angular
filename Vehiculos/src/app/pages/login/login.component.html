@@ -1,0 +1,41 @@
+<div class="limiter animated fadeInLeft">
+    <div class="container-login100">
+        <div class="wrap-login100 p-t-50 p-b-90">
+            <form class="login100-form validate-form flex-sb flex-w" #f="ngForm">
+
+                <span class="login100-form-title p-b-51">
+                        Login
+                    </span>
+
+
+                <span *ngIf="f.submitted &&  f.controls['usuario_login'].errors" class="text-danger animated fadeIn">Usuario Login</span>
+                <div class="wrap-input100 m-b-16">
+                    <input class="input100" type="text" required name="usuario_login" [(ngModel)]="usuario.usuario_login" placeholder="Usuario Login">
+                    <span class="focus-input100"></span>
+                </div>
+
+
+                <span *ngIf="f.submitted &&  f.controls['password'].errors" class="text-danger animated fadeIn">Minimo de letras 6</span>
+                <div class="wrap-input100 m-b-16" data-validate="Password is required">
+                    <input class="input100" type="password" required minlength="3" [(ngModel)]="usuario.password" name="password" placeholder="Password">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="flex-sb-m w-full p-t-3 p-b-24">
+                    <div>
+                        <a routerLink="/registro" class="txt1">
+                                ¿No tienes cuenta?
+                            </a>
+                    </div>
+                </div>
+
+                <div class="container-login100-form-btn m-t-17">
+                    <button class="login100-form-btn" type="button" (click)="login(f)">
+                            Ingresar
+                        </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
