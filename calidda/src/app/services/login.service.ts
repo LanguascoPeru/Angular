@@ -34,7 +34,7 @@ export class LoginService {
     parametros = parametros.append('option', '1');
     parametros = parametros.append('filters', usuario.usuario_login + '|' + usuario.password);
 
-    return this.http.get('http://192.168.10.25:8086/api/UsuarioAccesos',{params: parametros})
+    return this.http.get('http://192.168.0.6:8085/api/UsuarioAccesos',{params: parametros})
             .pipe(map((res)=>{
                   if(!res){
                     return {
@@ -96,5 +96,7 @@ export class LoginService {
   logOut(){
     localStorage.removeItem('data_usuario');
   }
+
+  
 
 }

@@ -1,1 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+/* .main-container {
+    background-color: #606060;
+    color: white;
+}
+
+.main-container h1 {
+    color: white;
+}
+
+.main-container label {
+    color: white;
+}
+
+.main-container form-control {
+    background-color: transparent;
+}
+
+input {
+    background-color: transparent !important;
+}
+
+input:focus {
+    border: 1px solid red !important;
+    background-color: transparent !important;
+    color: white !important;
+}
+
+.form-control {
+    color: white;
+} */
+
+label {
+    color: #414141;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.form-control {
+    color: #acaaa6 !important;
+}
