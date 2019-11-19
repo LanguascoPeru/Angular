@@ -1,0 +1,18 @@
+<div infiniteScroll [infiniteScrollDistance]="2" (scrolled)="onScroll()">
+    <table class="table table-responsive" style="height: 200px;">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col"><strong>TEXT</strong></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let line of linesToWrite; index as i">
+                <th scope="row">{{i}}</th>
+                <th scope="row">{{line}}</th>
+            </tr>
+        </tbody>
+    </table>
+    <button [ngClass]="'no-hidden'" *ngIf="showGoUpButton" class="btn btn-dark" (click)="scrollTop()">GO UP</button>
+
+</div>

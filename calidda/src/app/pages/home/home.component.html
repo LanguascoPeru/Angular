@@ -1,5 +1,5 @@
-<div class="row" style="margin: 5px;">
-    <div class="col-md-8">
+<!-- <div class="row" style="margin: 5px;">
+    <div class="col-md-6">
         <section class="card shadow p-3 mb-5 bg-white rounded">
             <div class="card-body">
                 <h5 class="card-title">MANTENIMIENTO DE CLIENTES</h5>
@@ -54,10 +54,16 @@
             </div>
         </section>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-6">
         <section class="card shadow p-3 mb-5 bg-white rounded">
             <div class="card-body">
                 <h5 class="card-title">SUCURSAL</h5>
+
+                <app-datepicker-popup></app-datepicker-popup>
+
+                <hr/>
+                <pre>Model: {{ model | json }}</pre>
+
                 <form>
                     <div class="form-group row">
                         <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
@@ -126,4 +132,13 @@
             </div>
         </section>
     </div>
-</div>
+</div> -->
+
+<br>
+<section class="card shadow p-3 mb-5 bg-white rounded">
+    <div class="card-body">
+        <div class="main-table">
+            <app-infinite-scroll></app-infinite-scroll>
+        </div>
+    </div>
+</section>

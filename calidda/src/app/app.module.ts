@@ -19,6 +19,11 @@ import { HomeComponent } from './pages/home/home.component';
 
 /// ng-bootstrap datepicker
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { DatepickerPopupComponent } from './components/datepicker-popup/datepicker-popup.component';
+
+/// infinity scroll
+import {InfiniteScrollModule} from 'ngx-infinite-scroll';
+import { InfiniteScrollComponent } from './components/infinite-scroll/infinite-scroll.component';
  
  
 
@@ -27,7 +32,10 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     AppComponent,
     LoginComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    DatepickerPopupComponent,
+    InfiniteScrollComponent,
+ 
   ],
   imports: [
     BrowserModule,
@@ -35,7 +43,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    InfiniteScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]
