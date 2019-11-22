@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {}
+
+label {
+    color: #414141;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+    border: 1px solid #aaa !important;
+}
+
+.select2-container .select2-selection--single {
+    height: 30px !important;
+}
+
+.select2-container {
+    width: 98% !important;
+}
+
+.select2-results__option[aria-selected] {
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+}
+
+.LanBar,
+table tbody {
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+}
